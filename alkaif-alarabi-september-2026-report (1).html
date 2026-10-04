@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكيف العربي - تقرير الأداء الشهري - سبتمبر 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f8fafc; direction: rtl; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+        .header { background: linear-gradient(135deg, #4f1a7a 0%, #2d0f47 100%); color: white; padding: 60px 40px; border-radius: 16px; margin-bottom: 40px; text-align: center; }
+        .header h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; }
+        .header .brand { font-size: 30px; font-weight: 600; margin-bottom: 8px; opacity: 0.95; }
+        .header .date { font-size: 16px; opacity: 0.7; font-weight: 500; }
+        .accent-bar { height: 4px; width: 120px; background: #a855f7; margin: 16px auto; border-radius: 2px; }
+
+        .banner { background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); color: white; padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 32px; box-shadow: 0 4px 12px rgba(124,58,237,0.3); }
+        .banner h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .banner p { font-size: 15px; opacity: 0.92; }
+
+        .alert-banner { background: linear-gradient(135deg, #fef3c7, #fde68a); border: 2px solid #f59e0b; border-radius: 12px; padding: 18px 24px; margin-bottom: 24px; font-size: 14px; color: #78350f; line-height: 1.7; }
+        .alert-banner strong { color: #92400e; }
+        .alert-banner.success { background: linear-gradient(135deg, #d1fae5, #a7f3d0); border: 2px solid #10b981; color: #065f46; }
+        .alert-banner.success strong { color: #065f46; }
+
+        .section { background: white; border-radius: 12px; padding: 32px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .section-title { font-size: 28px; font-weight: 700; color: #5b21b6; margin-bottom: 24px; border-right: 5px solid #7c3aed; padding-right: 14px; }
+
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .metric-card { padding: 24px; border-radius: 12px; border: 2px solid #e2e8f0; }
+        .metric-card.primary { background: linear-gradient(135deg, #4f1a7a 0%, #2d0f47 100%); color: white; border: none; }
+        .metric-card.success { background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); color: white; border: none; }
+        .metric-card.success-light { background: #ede9fe; border: 2px solid #7c3aed; }
+        .metric-card.muted { background: #f1f5f9; }
+        .metric-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; margin-bottom: 8px; }
+        .metric-value { font-size: 38px; font-weight: 700; line-height: 1.1; }
+        .metric-card.success-light .metric-value { color: #4c1d95; }
+        .metric-card.muted .metric-value { color: #1a1a1a; }
+        .metric-card.muted .metric-label { color: #64748b; opacity:1; }
+
+        .change-pill { display: inline-flex; align-items: center; gap: 3px; margin-top: 10px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+        .change-pill.up-w { background: rgba(255,255,255,0.22); color: white; }
+        .change-pill.dn-w { background: rgba(255,100,100,0.28); color: #fee2e2; }
+        .change-pill.up-g { background: rgba(76,29,149,0.12); color: #4c1d95; }
+        .change-pill.dn-r { background: rgba(220,38,38,0.1); color: #991b1b; }
+        .change-pill.gold { background: rgba(245,158,11,0.18); color: #92400e; }
+
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+        .info-box { padding: 20px; border-radius: 10px; border-right: 4px solid; margin-bottom: 16px; }
+        .info-box.purple { background: #f5f3ff; border-color: #7c3aed; }
+        .info-box.green { background: #ecfdf5; border-color: #10b981; }
+        .info-box.red { background: #fef2f2; border-color: #dc2626; }
+        .info-box.orange { background: #fffbeb; border-color: #f59e0b; }
+        .info-box-label { font-size: 12px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+        .info-box-value { font-size: 34px; font-weight: 700; color: #1a1a1a; }
+        .ibc { font-size: 12px; font-weight: 700; margin-top: 8px; padding: 4px 10px; border-radius: 6px; display: inline-block; }
+        .ibc.up { background: #d1fae5; color: #065f46; }
+        .ibc.dn { background: #fee2e2; color: #991b1b; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+        thead th { background: #f5f3ff; padding: 12px 14px; text-align: right; font-size: 12px; font-weight: 700; text-transform: uppercase; color: #5b21b6; border-bottom: 2px solid #ddd6fe; }
+        thead th.center { text-align: center; }
+        tbody tr { border-bottom: 1px solid #e2e8f0; }
+        tbody tr:hover { background: #f8fafc; }
+        tbody tr.highlight { background: #fef3c7; }
+        tbody td { padding: 14px; font-size: 14px; }
+        tbody td.center { text-align: center; font-weight: 700; font-size: 15px; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+        .badge.snap { background: #FFFC00; color: #1a1a1a; }
+        .badge.warn { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+
+        .comp-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .comp-table th { background: #4f1a7a; color: white; padding: 12px 16px; text-align: center; font-size: 13px; font-weight: 700; }
+        .comp-table th:first-child { text-align: right; }
+        .comp-table td { padding: 12px 16px; border-bottom: 1px solid #e2e8f0; font-size: 14px; font-weight: 600; text-align: center; }
+        .comp-table td:first-child { text-align: right; color: #374151; font-weight: 700; }
+        .comp-table tr.best { background: #ede9fe; }
+        .comp-table tr.best td { color: #4c1d95; }
+        .comp-table tr.record { background: #fef3c7; }
+        .comp-table tr.record td { color: #92400e; }
+        .up-val { color: #059669; font-weight: 700; }
+        .dn-val { color: #dc2626; font-weight: 700; }
+        .gold-val { color: #b45309; font-weight: 800; }
+
+        .prod-rank { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #7c3aed; color: white; font-size: 11px; font-weight: 700; margin-left: 8px; }
+
+        .issue-list { list-style: none; padding: 0; }
+        .issue-list li { display: flex; gap: 12px; padding: 14px; border-radius: 8px; background: #fef2f2; border-right: 4px solid #dc2626; margin-bottom: 12px; font-size: 14px; color: #374151; line-height: 1.6; }
+        .issue-list li::before { content: "⚠️"; flex-shrink: 0; }
+        .rec-list { list-style: none; padding: 0; }
+        .rec-list li { display: flex; gap: 12px; padding: 14px; border-radius: 8px; background: #f0fdf4; border-right: 4px solid #10b981; margin-bottom: 12px; font-size: 14px; color: #374151; line-height: 1.6; }
+        .rec-list li::before { content: "✅"; flex-shrink: 0; }
+
+        .insights-section { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 2px solid #7c3aed; border-radius: 12px; padding: 32px; margin-top: 32px; }
+        .insights-title { font-size: 26px; font-weight: 700; color: #4c1d95; margin-bottom: 8px; }
+        .insights-sub { font-size: 14px; color: #6d28d9; margin-bottom: 24px; font-weight: 500; }
+        .insight-cat { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; border-right: 4px solid; }
+        .insight-cat.critical { border-color: #dc2626; }
+        .insight-cat.opportunity { border-color: #10b981; }
+        .insight-cat.optimization { border-color: #f59e0b; }
+        .insight-cat-title { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+        .insight-cat.critical .insight-cat-title { color: #991b1b; }
+        .insight-cat.opportunity .insight-cat-title { color: #065f46; }
+        .insight-cat.optimization .insight-cat-title { color: #92400e; }
+        .insight-item { margin-bottom: 14px; padding-right: 14px; border-right: 2px solid #e2e8f0; }
+        .insight-heading { font-size: 14px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+        .insight-text { font-size: 13px; color: #475569; line-height: 1.65; }
+
+        .verdict { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); border: 2px solid #7c3aed; border-radius: 10px; padding: 24px; margin-top: 20px; }
+        .verdict-title { font-size: 17px; font-weight: 700; color: #4c1d95; margin-bottom: 12px; }
+        .verdict-text { font-size: 14px; color: #374151; line-height: 1.75; }
+
+        .priority-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 20px; }
+        .priority-card { padding: 16px; border-radius: 8px; border-right: 4px solid; }
+        .priority-card.p1 { background: #fef2f2; border-color: #dc2626; }
+        .priority-card.p2 { background: #f0fdf4; border-color: #10b981; }
+        .priority-card.p3 { background: #fffbeb; border-color: #f59e0b; }
+        .priority-card.p4 { background: #eff6ff; border-color: #3b82f6; }
+        .priority-num { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        .priority-card.p1 .priority-num { color: #991b1b; }
+        .priority-card.p2 .priority-num { color: #065f46; }
+        .priority-card.p3 .priority-num { color: #92400e; }
+        .priority-card.p4 .priority-num { color: #1e40af; }
+        .priority-desc { font-size: 12px; color: #64748b; }
+
+        .footnote { margin-top: 16px; padding: 12px; background: #f8fafc; border-radius: 8px; font-size: 12px; color: #64748b; }
+        .snap-note { background: #fffef0; border: 2px solid #ca8a04; border-radius: 10px; padding: 16px 20px; margin-top: 16px; font-size: 13px; color: #92400e; line-height: 1.7; }
+        .snap-note strong { color: #78350f; }
+
+        .out-of-stock { background: #fef2f2; border: 2px solid #dc2626; border-radius: 10px; padding: 16px 20px; margin-top: 16px; font-size: 13px; color: #991b1b; line-height: 1.7; }
+        .out-of-stock strong { color: #7f1d1d; }
+        .restock-good { background: #f0fdf4; border: 2px solid #10b981; border-radius: 10px; padding: 16px 20px; margin-top: 16px; font-size: 13px; color: #065f46; line-height: 1.7; }
+        .restock-good strong { color: #064e3b; }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px 14px; }
+            .header { padding: 32px 20px; }
+            .header h1 { font-size: 26px; }
+            .header .brand { font-size: 22px; }
+            .section { padding: 20px 16px; }
+            .section-title { font-size: 22px; padding-right: 10px; }
+            .banner { padding: 18px; }
+            .banner h2 { font-size: 19px; }
+            .banner p { font-size: 13px; }
+            .two-column { grid-template-columns: 1fr; }
+            .metrics-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .metric-card { padding: 16px; }
+            .metric-value { font-size: 26px; }
+            .priority-grid { grid-template-columns: 1fr; }
+            .info-box { padding: 16px; }
+            .info-box-value { font-size: 24px; }
+            .insights-section { padding: 20px 16px; }
+            .table-scroll { overflow-x: visible; }
+            .comp-table { table-layout: fixed; }
+            .comp-table th, .comp-table td { padding: 8px 2px; font-size: clamp(9px, 2.7vw, 12px); white-space: normal; overflow-wrap: anywhere; line-height: 1.4; }
+            .comp-table th:first-child, .comp-table td:first-child { width: 21%; padding-right: 6px; }
+            table th, table td { word-break: break-word; }
+        }
+        /* no horizontal scroll */
+        html, body { width: 100%; overflow-x: hidden; overflow-x: clip; }
+        .container { overflow-wrap: anywhere; }
+        .section, .insights-section { max-width: 100%; overflow-wrap: anywhere; }
+        img { max-width: 100%; height: auto; }
+        .metrics-grid > *, .impact-grid > *, .journey > *, .two-column > *, .priority-grid > * { min-width: 0; }
+        @media (max-width: 768px) {
+            .metrics-grid, .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .two-column, .journey, .priority-grid { grid-template-columns: minmax(0, 1fr); }
+            .metric-value { font-size: clamp(18px, 6vw, 26px); }
+            .metrics-grid > div > div[style*="font-size:28px"] { font-size: clamp(17px, 5.6vw, 24px) !important; }
+            .impact { padding: 12px 8px; }
+            .impact-val { font-size: clamp(17px, 5.6vw, 24px); }
+            .info-box-value { font-size: clamp(19px, 6.2vw, 24px); }
+            .table-scroll { overflow: visible; }
+            table { table-layout: fixed; }
+            tbody td { padding: 10px 6px; font-size: 13px; }
+            thead th { padding: 10px 6px; }
+            table:not(.comp-table) th:first-child, table:not(.comp-table) td:first-child { width: 44px; }
+            table:not(.comp-table) th:last-child, table:not(.comp-table) td:last-child { width: 56px; }
+            .prod-rank { margin-left: 0; }
+        }
+        @media (max-width: 420px) {
+            .metrics-grid { grid-template-columns: minmax(0, 1fr) !important; }
+        }
+        @media (max-width: 420px) {
+            .metrics-grid { grid-template-columns: 1fr; }
+        }
+    
+        .nd-banner { background: linear-gradient(135deg, #006c35 0%, #004d26 100%); color: white; border-radius: 12px; padding: 22px 26px; margin-bottom: 32px; display: flex; gap: 18px; align-items: center; box-shadow: 0 4px 12px rgba(0,108,53,0.25); }
+        .nd-banner .nd-icon { font-size: 38px; flex-shrink: 0; }
+        .nd-banner h3 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+        .nd-banner p { font-size: 14px; opacity: 0.93; line-height: 1.7; }
+
+        .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
+        .step { position: relative; background: #faf8ff; border: 2px solid #ddd6fe; border-radius: 12px; padding: 22px 18px 18px; }
+        .step-num { position: absolute; top: -14px; right: 16px; width: 30px; height: 30px; border-radius: 50%; background: #7c3aed; color: white; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(124,58,237,0.35); }
+        .step-phase { font-size: 11px; font-weight: 700; color: #7c3aed; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .step-title { font-size: 16px; font-weight: 700; color: #2d0f47; margin-bottom: 8px; }
+        .step-text { font-size: 13px; color: #475569; line-height: 1.7; }
+        .step.result { background: linear-gradient(135deg, #4f1a7a 0%, #2d0f47 100%); border: none; }
+        .step.result .step-phase { color: #c4b5fd; }
+        .step.result .step-title { color: white; }
+        .step.result .step-text { color: #e9d5ff; }
+        .step.result .step-num { background: #a855f7; }
+
+        .impact-title { font-size: 15px; font-weight: 700; color: #4c1d95; margin: 28px 0 14px; }
+        .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .impact { background: white; border: 2px solid #e2e8f0; border-top: 4px solid #7c3aed; border-radius: 10px; padding: 16px; text-align: center; }
+        .impact-val { font-size: 26px; font-weight: 700; color: #4c1d95; line-height: 1.2; }
+        .impact-lbl { font-size: 12px; font-weight: 700; color: #1e293b; margin-top: 6px; }
+        .impact-sub { font-size: 11px; color: #64748b; margin-top: 4px; line-height: 1.5; }
+
+        @media (max-width: 768px) {
+            .nd-banner { flex-direction: column; text-align: center; padding: 20px; }
+            .journey { grid-template-columns: 1fr; gap: 22px; }
+            .impact-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>تقرير وتحليل نتائج</h1>
+        <div class="accent-bar"></div>
+        <div class="brand">الكيف العربي</div>
+        <div class="date" style="margin-top:8px;">سبتمبر 2026 — 1 سبتمبر إلى 30 سبتمبر 2026</div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h2>🏆 سبتمبر 2026 — أعلى مبيعات شهرية خلال آخر 12 شهراً</h2>
+        <p>209 طلب | إجمالي مبيعات 84,767 ريال | ROAS 7.34x | AOV 392.74 ريال</p>
+    </div>
+
+    <!-- National Day -->
+    <div class="nd-banner">
+        <div class="nd-icon">🇸🇦</div>
+        <div>
+            <h3>استغلال موسم اليوم الوطني السعودي</h3>
+            <p>تم التحضير للموسم مبكراً بمحتوى تصميم جديد وحملات مخصصة رغم تأخر استلام الفيديوهات، والاهتمام برفع الميزانية بالتزامن مع ارتفاع الطلب — والنتيجة نمو إجمالي المبيعات بنسبة <strong>44.8%</strong> ونمو الطلبات بنسبة <strong>34.8%</strong> مقارنة بأغسطس.</p>
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="section">
+        <h2 class="section-title">ملخص تنفيذي</h2>
+        <div class="metrics-grid">
+            <div class="metric-card primary">
+                <div class="metric-label">إجمالي المبيعات</div>
+                <div class="metric-value">84,767 ر.س</div>
+                <div class="change-pill up-w">▲ +44.8% مقارنة بأغسطس (58,431 ر.س)</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">إجمالي الطلبات</div>
+                <div class="metric-value">209</div>
+                <div class="change-pill up-g">▲ +34.8% مقارنة بأغسطس (155 طلب)</div>
+            </div>
+            <div class="metric-card success-light">
+                <div class="metric-label">متوسط قيمة الطلب (AOV)</div>
+                <div class="metric-value">392.74 ر.س</div>
+                <div class="change-pill up-g">▲ +3.53% — رقم قياسي جديد</div>
+            </div>
+            <div class="metric-card success">
+                <div class="metric-label">العائد على الإنفاق الكلي (ROAS)</div>
+                <div class="metric-value">7.34x</div>
+                <div class="change-pill up-w">▲ من 6.44x في أغسطس</div>
+            </div>
+        </div>
+        <div class="metrics-grid" style="margin-top:0;">
+            <div class="metric-card muted">
+                <div class="metric-label">إجمالي الإنفاق الإعلاني</div>
+                <div class="metric-value" style="color:#4c1d95;">11,553 ر.س</div>
+                <div class="change-pill up-g">▲ +27.3% مقارنة بأغسطس — سناب شات</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">تكلفة الشراء الكلية (CPP)</div>
+                <div class="metric-value" style="color:#4c1d95;">55.28 ر.س</div>
+                <div class="change-pill up-g">▼ −5.6% من 58.56 ر.س في أغسطس</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">إجمالي المبيعات (شامل التخفيضات)</div>
+                <div class="metric-value" style="color:#4c1d95;">86,289 ر.س</div>
+                <div class="change-pill up-g">▲ +43.55% مقارنة بأغسطس</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work Journey -->
+    <div class="section">
+        <h2 class="section-title">رحلة العمل خلال سبتمبر — من المحتوى إلى السكيلينج</h2>
+        <div class="journey">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-phase">المحتوى</div>
+                <div class="step-title">التصاميم الإعلانية</div>
+                <div class="step-text">الاعتماد مبكراً على تصاميم إعلانية جديدة لتجهيز الحملات قبل موسم اليوم الوطني.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-phase">المحتوى</div>
+                <div class="step-title">سكريبتات الفيديو</div>
+                <div class="step-text">توفير 5 سكريبتات فيديو بزوايا بيع متنوعة لدعم الحملات بمحتوى مرئي.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-phase">المحتوى</div>
+                <div class="step-title">استلام الفيديوهات واعتمادها</div>
+                <div class="step-text">استلام فيديوهين من أصل 5 سكريبتات بعد تأخر في التنفيذ، واعتمادهما وإدراجهما في الإعلانات فور الاستلام.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-phase">الإعلانات</div>
+                <div class="step-title">اختبار الحملات</div>
+                <div class="step-text">اختبار الحملات والمجموعات الإعلانية والكرييتيفات (تصاميم وفيديو) بهيكل ABO، لتحديد الأفضل أداءً بالأرقام.</div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-phase">الإعلانات</div>
+                <div class="step-title">الأوبتميزيشن</div>
+                <div class="step-text">متابعة يومية، إيقاف الإعلانات الضعيفة وتحويل الميزانية إلى الأفضل وفق تكلفة الشراء والعائد.</div>
+            </div>
+            <div class="step result">
+                <div class="step-num">6</div>
+                <div class="step-phase">النتيجة</div>
+                <div class="step-title">السكيلينج</div>
+                <div class="step-text">رفع الإنفاق بنسبة 27.3% على الإعلانات الرابحة، وقابله نمو في المشتريات بنسبة 27.4%.</div>
+            </div>
+        </div>
+
+        <div class="impact-title">أثر العمل بالأرقام — سناب شات</div>
+        <div class="impact-grid">
+            <div class="impact">
+                <div class="impact-val">2.17%</div>
+                <div class="impact-lbl">معدل النقر (CTR)</div>
+                <div class="impact-sub">▲ من 1.78% — المحتوى الجديد أكثر جذباً</div>
+            </div>
+            <div class="impact">
+                <div class="impact-val">+13.2%</div>
+                <div class="impact-lbl">نمو النقرات</div>
+                <div class="impact-sub">رغم انخفاض الظهورات 7.3%</div>
+            </div>
+            <div class="impact">
+                <div class="impact-val">+27.4%</div>
+                <div class="impact-lbl">نمو المشتريات</div>
+                <div class="impact-sub">144 مقابل 113 في أغسطس</div>
+            </div>
+            <div class="impact">
+                <div class="impact-val">80.23 ر.س</div>
+                <div class="impact-lbl">تكلفة الشراء ثابتة</div>
+                <div class="impact-sub">80.33 ر.س في أغسطس — سكيلينج دون ارتفاع التكلفة</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue -->
+    <div class="section">
+        <h2 class="section-title">المبيعات والطلبات</h2>
+        <div class="two-column">
+            <div>
+                <div class="info-box purple">
+                    <div class="info-box-label">إجمالي المبيعات (شامل التخفيضات)</div>
+                    <div class="info-box-value">86,289.20 ر.س</div>
+                    <span class="ibc up">▲ +43.55% مقارنة بأغسطس</span>
+                </div>
+                <div class="info-box green">
+                    <div class="info-box-label">إجمالي المبيعات</div>
+                    <div class="info-box-value">84,767.04 ر.س</div>
+                    <span class="ibc up">▲ +44.8% مقارنة بأغسطس</span>
+                </div>
+                <div class="info-box" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-right:4px solid #10b981;">
+                    <div class="info-box-label" style="color:#065f46;">الطلبات</div>
+                    <div class="info-box-value" style="color:#065f46;">209 طلب</div>
+                    <span class="ibc up">▲ +34.8% مقارنة بأغسطس (155 طلب)</span>
+                </div>
+                <div style="background:#f0fdf4;border:2px solid #10b981;border-radius:10px;padding:20px;margin-top:16px;">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:12px;color:#065f46;">📦 مؤشرات المتجر</div>
+                    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #d1fae5;font-size:13px;">
+                        <span style="color:#374151;font-weight:600;">متوسط سلة المشتريات (AOV)</span>
+                        <span style="font-weight:700;color:#059669;">392.74 ر.س</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #d1fae5;font-size:13px;">
+                        <span style="color:#374151;font-weight:600;">معدل تكرار الشراء</span>
+                        <span style="font-weight:700;color:#059669;">7.25%</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;">
+                        <span style="color:#374151;font-weight:600;">العائد على الإنفاق الكلي</span>
+                        <span style="font-weight:700;color:#059669;">7.34x</span>
+                    </div>
+                </div>
+                <div class="restock-good">
+                    <strong>✅ خيشات البن تقود قيمة السلة:</strong><br>
+                    بن لقمي أبو دلتين 5 كيلو قفز من 13 إلى 40 وحدة، وقهوة هندي AA 10 كيلو من 20 إلى 34 وحدة — ارتفاع مبيعات الأوزان الكبيرة هو ما رفع متوسط قيمة الطلب إلى رقم قياسي جديد.
+                </div>
+            </div>
+            <div>
+                <div style="background:white;border:2px solid #ddd6fe;border-radius:10px;padding:20px;margin-bottom:16px;">
+                    <div style="font-size:14px;font-weight:700;margin-bottom:16px;color:#374151;">المنتجات الأكثر مبيعاً — سبتمبر 2026</div>
+                    <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>المنتج</th>
+                                <th class="center">الكمية</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight">
+                                <td><span class="prod-rank">1</span></td>
+                                <td>مكسرات مشكلة - تحميص هوائي</td>
+                                <td class="center">64</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#6d28d9;">2</span></td>
+                                <td>بن لقمي الكيف العربي - إثيوبي - خيشة وزن 5 كيلو</td>
+                                <td class="center">51</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#6d28d9;">3</span></td>
+                                <td>بن لقمي أبو دلتين - إثيوبي - خيشة وزن 5 كيلو</td>
+                                <td class="center">40</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#8b5cf6;">4</span></td>
+                                <td>قهوة هندي AA درجة أولى - 10 كيلو</td>
+                                <td class="center">34</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#8b5cf6;">5</span></td>
+                                <td>زبدة الفول السوداني (500 جرام)</td>
+                                <td class="center">27</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#8b5cf6;">6</span></td>
+                                <td>بن لقمي الكيف العربي - إثيوبي - خيشة وزن 10 كيلو</td>
+                                <td class="center">26</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#a78bfa;">7</span></td>
+                                <td>كرتون بيكان</td>
+                                <td class="center">18</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#a78bfa;">8</span></td>
+                                <td>خدمة تحميص القهوة 5 كيلو</td>
+                                <td class="center">16</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#c4b5fd;">9</span></td>
+                                <td>هيل كاردكس 1P درجة أولى - 8 ملي - 250 جرام</td>
+                                <td class="center">15</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#c4b5fd;">9</span></td>
+                                <td>بن هرري أبو دلتين - إثيوبي - خيشة وزن 10 كيلو</td>
+                                <td class="center">15</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#ddd6fe;color:#5b21b6;">11</span></td>
+                                <td>بن هرري أبو دلتين - إثيوبي - خيشة وزن 5 كيلو</td>
+                                <td class="center">14</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#ddd6fe;color:#5b21b6;">11</span></td>
+                                <td>بن لقمي أبو دلتين - إثيوبي - خيشة وزن 10 كيلو</td>
+                                <td class="center">14</td>
+                            </tr>
+                            <tr>
+                                <td><span class="prod-rank" style="background:#ddd6fe;color:#5b21b6;">13</span></td>
+                                <td>بن هرري الكيف العربي - إثيوبي - خيشة 5 كيلو</td>
+                                <td class="center">12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snapchat -->
+    <div class="section">
+        <h2 class="section-title">أداء إعلانات سناب شات — سبتمبر 2026</h2>
+        <div class="metrics-grid">
+            <div class="metric-card primary">
+                <div class="metric-label">إجمالي الإنفاق</div>
+                <div class="metric-value">11,553 ر.س</div>
+                <div class="change-pill up-w">▲ +27.3% من 9,077 ر.س في أغسطس</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">الظهورات</div>
+                <div class="metric-value" style="color:#4c1d95;">414,994</div>
+                <div class="change-pill dn-r">▼ −7.3% من 447,740 في أغسطس</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">النقرات | CTR</div>
+                <div class="metric-value" style="color:#4c1d95;">9,002</div>
+                <div class="change-pill up-g">CTR: 2.17% | ▲ +13.2% نقرات</div>
+            </div>
+            <div class="metric-card muted">
+                <div class="metric-label">المشتريات</div>
+                <div class="metric-value" style="color:#4c1d95;">144</div>
+                <div class="change-pill up-g">▲ +27.4% من 113 في أغسطس</div>
+            </div>
+        </div>
+        <div class="metrics-grid" style="margin-top:0;">
+            <div style="background:#f5f3ff;padding:16px;border-radius:10px;text-align:center;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;margin-bottom:6px;">إضافات للسلة</div>
+                <div style="font-size:28px;font-weight:700;color:#5b21b6;">1,347</div>
+            </div>
+            <div style="background:#f5f3ff;padding:16px;border-radius:10px;text-align:center;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;margin-bottom:6px;">بدء الدفع</div>
+                <div style="font-size:28px;font-weight:700;color:#5b21b6;">1,367</div>
+            </div>
+            <div style="background:#f5f3ff;padding:16px;border-radius:10px;text-align:center;">
+                <div style="font-size:11px;color:#64748b;font-weight:700;margin-bottom:6px;">أضاف معلومات الدفع</div>
+                <div style="font-size:28px;font-weight:700;color:#5b21b6;">790</div>
+            </div>
+            <div style="background:#fffef0;padding:16px;border-radius:10px;text-align:center;border:2px solid #ca8a04;">
+                <div style="font-size:11px;color:#92400e;font-weight:700;margin-bottom:6px;">CPP سناب</div>
+                <div style="font-size:28px;font-weight:700;color:#92400e;">80.23 ر.س</div>
+            </div>
+            <div style="background:#fffef0;padding:16px;border-radius:10px;text-align:center;border:2px solid #ca8a04;">
+                <div style="font-size:11px;color:#92400e;font-weight:700;margin-bottom:6px;">قيمة مشتريات سناب</div>
+                <div style="font-size:28px;font-weight:700;color:#92400e;">54,204 ر.س</div>
+            </div>
+            <div style="background:#fffef0;padding:16px;border-radius:10px;text-align:center;border:2px solid #ca8a04;">
+                <div style="font-size:11px;color:#92400e;font-weight:700;margin-bottom:6px;">ROAS سناب</div>
+                <div style="font-size:28px;font-weight:700;color:#92400e;">4.69x</div>
+            </div>
+        </div>
+        <div class="snap-note">
+            <strong>📌 سناب شات — سكيلينج بنفس تكلفة الشراء:</strong><br>
+            رفع الميزانية من 9,077 إلى 11,553 ر.س (+27.3%) قابله نمو مماثل في المشتريات (+27.4%)، مع بقاء تكلفة الشراء شبه ثابتة (80.23 مقابل 80.33 ر.س). كما تحسّن معدل إتمام الشراء من بدء الدفع من 9.7% إلى 10.5%، وارتفعت إضافات السلة 23.7% وإضافة معلومات الدفع 34.4%.
+        </div>
+    </div>
+
+    <!-- Historical Comparison -->
+    <div class="section">
+        <h2 class="section-title">مقارنة الأشهر الأخيرة</h2>
+        <div class="table-scroll">
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>الشهر</th>
+                    <th>الطلبات</th>
+                    <th>الإنفاق (ر.س)</th>
+                    <th>الإيراد (ر.س)</th>
+                    <th>ROAS</th>
+                    <th>CPP (ر.س)</th>
+                    <th>AOV (ر.س)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>أكتوبر 2025</td><td>201</td><td>10,970</td><td>66,083</td><td>6.0</td><td>54.6</td><td>329</td></tr>
+                <tr><td>نوفمبر 2025</td><td>94</td><td>6,948</td><td>15,429</td><td>2.2</td><td>73.9</td><td>164</td></tr>
+                <tr><td>ديسمبر 2025</td><td>229</td><td>10,747</td><td>39,521</td><td>3.7</td><td>46.9</td><td>173</td></tr>
+                <tr><td>يناير 2026</td><td>178</td><td>6,886</td><td>32,321</td><td>4.7</td><td>38.7</td><td>182</td></tr>
+                <tr><td>فبراير 2026</td><td>156</td><td>9,030</td><td>29,314</td><td>3.2</td><td>57.9</td><td>188</td></tr>
+                <tr><td>مارس 2026</td><td>120</td><td>2,365</td><td>23,916</td><td>10.1</td><td>19.7</td><td>199</td></tr>
+                <tr><td>أبريل 2026</td><td>189</td><td>8,203</td><td>60,442</td><td>7.37</td><td>43.40</td><td>310</td></tr>
+                <tr><td>مايو 2026</td><td>128</td><td>4,790</td><td>39,113</td><td>8.17</td><td>37.42</td><td>305.57</td></tr>
+                <tr><td>يونيو 2026</td><td>110</td><td>3,553</td><td>36,306</td><td>10.22</td><td>32.30</td><td>330.05</td></tr>
+                <tr><td>يوليو 2026</td><td>152</td><td>5,970</td><td>49,603</td><td>8.31</td><td>39.28</td><td>326.34</td></tr>
+                <tr><td>أغسطس 2026</td><td>155</td><td>9,077</td><td>58,431</td><td>6.44</td><td>58.56</td><td>376.98</td></tr>
+                <tr class="best">
+                    <td><strong>سبتمبر 2026 ✨</strong></td>
+                    <td><strong class="up-val">209</strong></td>
+                    <td><strong>11,553</strong></td>
+                    <td><strong class="up-val">84,767 🏆</strong></td>
+                    <td><strong class="up-val">7.34</strong></td>
+                    <td><strong class="up-val">55.28</strong></td>
+                    <td><strong class="up-val">392.74 🏆</strong></td>
+                </tr>
+                <tr style="background:#4f1a7a;">
+                    <td style="color:white;"><strong>الإجمالي (12 شهراً)</strong></td>
+                    <td style="color:white;"><strong>1,921</strong></td>
+                    <td style="color:white;"><strong>90,092</strong></td>
+                    <td style="color:white;"><strong>535,246</strong></td>
+                    <td style="color:white;"><strong>5.94</strong></td>
+                    <td style="color:white;"><strong>46.90</strong></td>
+                    <td style="color:white;"><strong>278.63</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="footnote">✨ سبتمبر 2026: أعلى إيراد شهري في الجدول (84,767 ر.س، متجاوزاً أكتوبر 2025 بنسبة 28.3%)، أعلى عدد طلبات خلال 2026 (209)، أعلى AOV (392.74 ر.س)، وأعلى عدد مشتريات سناب (144). الإنفاق يشمل Snapchat فقط (11,553 ر.س).<br>صف الإجمالي: الطلبات والإنفاق والإيراد مجموع الأشهر الاثني عشر، أما ROAS و CPP و AOV فمحسوبة من الإجماليات.</div>
+    </div>
+
+    <!-- Issues -->
+    <div class="section">
+        <h2 class="section-title">الملاحظات والتحديات</h2>
+        <ul class="issue-list">
+            <li>الاعتماد على سناب شات كقناة إعلانية وحيدة مستمر — النتائج الحالية قوية، لكن وجود قناة ثانية يحمي المبيعات من أي تغيّر في تكلفة المنصة.</li>
+            <li>تأخر استلام الفيديوهات خلال الشهر، مع استلام فيديوهين فقط من أصل 5 سكريبتات تم توفيرها — ما قلّل من فرصة المحتوى المرئي في الاختبار.</li>
+            <li>1,367 بدأوا الدفع وأتمّ الشراء 144 — المعدل تحسّن إلى 10.5%، ولا تزال الفجوة فرصة مبيعات إضافية.</li>
+        </ul>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="section">
+        <h2 class="section-title">خطة الفترة القادمة</h2>
+        <ul class="rec-list">
+            <li>العمل على الحفاظ على زخم ما بعد الموسم — الإبقاء على الإعلانات الرابحة مع متابعة تكلفة الشراء بعد انتهاء عروض اليوم الوطني.</li>
+            <li>توفير محتوى جديد من الفيديوهات بما يناسب موسم الشتاء.</li>
+            <li>العمل على استهداف السلات المتروكة عبر بيزنس شات (واتساب) — أكثر من 1,200 شخص بدأوا الدفع في سبتمبر ولم يكملوا الشراء.</li>
+            <li>العمل على اختبار منصة إعلانية ثانية بميزانية اختبارية — لتنويع مصادر الاستحواذ.</li>
+        </ul>
+    </div>
+
+    <!-- Insights -->
+    <div class="insights-section">
+        <div class="insights-title">📊 تحليل معمّق ورؤى استراتيجية</div>
+        <div class="insights-sub">تحليل شامل لأداء سبتمبر 2026</div>
+
+        <div class="insight-cat opportunity">
+            <div class="insight-cat-title">🟢 إنجازات سبتمبر</div>
+            <div class="insight-item">
+                <div class="insight-heading">تجاوز هدف الشهر بنسبة 30%</div>
+                <div class="insight-text">تقرير أغسطس حدد هدف تخطي 65,000 ر.س في سبتمبر — المحقق فعلياً 84,767 ر.س.</div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-heading">نمو للشهر الثالث على التوالي</div>
+                <div class="insight-text">من 49,603 ر.س في يوليو إلى 58,431 ر.س في أغسطس ثم 84,767 ر.س في سبتمبر — نمو تراكمي 70.9% خلال شهرين.</div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-heading">المحتوى الجديد رفع جودة الزيارات</div>
+                <div class="insight-text">ظهورات أقل بنسبة 7.3% أنتجت نقرات أكثر بنسبة 13.2% — معدل النقر ارتفع من 1.78% إلى 2.17%، وهو أثر مباشر لتجديد المحتوى الإعلاني واختبار الحملات.</div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-heading">سكيلينج دون خسارة في الكفاءة</div>
+                <div class="insight-text">الإنفاق ارتفع 27.3% والمبيعات ارتفعت 44.8% — العائد الكلي تحسّن من 6.44x إلى 7.34x وتكلفة الشراء الكلية انخفضت من 58.56 إلى 55.28 ر.س.</div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-heading">أعلى AOV مسجّل: 392.74 ر.س</div>
+                <div class="insight-text">رقم قياسي للشهر الثاني على التوالي، مدفوعاً بارتفاع مبيعات خيشات البن 5 و10 كيلو.</div>
+            </div>
+        </div>
+
+        <div class="insight-cat optimization">
+            <div class="insight-cat-title">🟡 نقاط للمتابعة</div>
+            <div class="insight-item">
+                <div class="insight-heading">أكتوبر شهر ما بعد الموسم</div>
+                <div class="insight-text">جزء من نمو سبتمبر مرتبط بموسم اليوم الوطني — المحافظة على المستوى الجديد تتطلب استمرار تجديد المحتوى ومصدر طلب إضافي.</div>
+            </div>
+        </div>
+
+        <div style="background:white;border-radius:10px;padding:24px;margin-top:20px;border:2px solid #7c3aed;">
+            <div style="font-size:18px;font-weight:700;color:#4c1d95;margin-bottom:16px;">🎯 أولويات العمل لأكتوبر 2026</div>
+            <div class="priority-grid">
+                <div class="priority-card p1">
+                    <div class="priority-num">1. الحفاظ على زخم ما بعد الموسم</div>
+                    <div class="priority-desc">العمل على تثبيت مستوى المبيعات الجديد بالإعلانات الرابحة</div>
+                </div>
+                <div class="priority-card p2">
+                    <div class="priority-num">2. محتوى فيديو جديد</div>
+                    <div class="priority-desc">توفير محتوى جديد من الفيديوهات</div>
+                </div>
+                <div class="priority-card p3">
+                    <div class="priority-num">3. بيزنس شات للسلات المتروكة</div>
+                    <div class="priority-desc">العمل على استهداف 1,200+ شخص بدأوا الدفع ولم يكملوا الشراء</div>
+                </div>
+                <div class="priority-card p4">
+                    <div class="priority-num">4. منصة إعلانية ثانية</div>
+                    <div class="priority-desc">العمل على اختبار قناة إضافية بميزانية اختبارية</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="verdict" style="margin-top:20px;">
+            <div class="verdict-title">📌 الخلاصة والتقييم الشامل — سبتمبر 2026</div>
+            <div class="verdict-text">
+                سبتمبر 2026 هو <strong>أقوى شهر خلال آخر 12 شهراً</strong>: مبيعات 84,767 ر.س (+44.8%)، 209 طلب (+34.8%)، أعلى AOV مسجّل (392.74 ر.س)، وعائد كلي 7.34x.
+                <br><br>
+                <strong>هذه النتيجة حصيلة عمل متكامل: تصاميم إعلانية وسكريبتات فيديو ← اختبار حملات ← أوبتميزيشن ← سكيلينج، مع استغلال موسم اليوم الوطني في التوقيت المناسب.</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:40px 0 40px 0;">
+        <div style="background:linear-gradient(135deg,#4f1a7a 0%,#2d0f47 100%);border-radius:16px;padding:28px 24px;text-align:center;">
+            <a href="https://iijadagency.com/" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;">
+                <img src="data:image/png;base64,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" alt="مؤسسة إيجاد للتسويق الرقمي" style="height:38px;opacity:0.95;">
+            </a>
+            <div style="width:40px;height:2px;background:#a855f7;margin:14px auto;border-radius:2px;"></div>
+            <p style="font-size:13px;color:#c4b5fd;line-height:1.8;">
+                إعداد:
+                <a href="https://wa.me/201558636063" target="_blank" rel="noopener" style="color:white;text-decoration:none;font-weight:700;">Ahmed Shaaban — أحمد شعبان</a>
+                · أخصائي تسويق الأداء (Performance Marketer)
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
